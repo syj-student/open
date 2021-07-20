@@ -1,18 +1,31 @@
-$(NAME) = tmp
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: yusong <42.4.yusong@gmail.com>             +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/07/19 22:24:22 by yusong            #+#    #+#              #
+#    Updated: 2021/07/20 09:07:10 by yusong           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-$(CC) = gcc
-$(CFLAGS) = -Werror -Wextra -Wall
+NAME = pipex
 
-$(SRCS) = 
-$(OBJS) = $(SRCS:.c=.o)
+CC = gcc
+CFLAGS = -Werror -Wextra -Wall
 
-all = $(NAME)
+SRCS =	main.c \
+			untils_1.c
+OBJS = $(SRCS:.c=.o)
 
-$(NAME) : $(OBJS)
-	$(CC) $(CFLAGS)
+all : $(NAME)
 
-%.o : $.c
-	$(CC) $(CLFAG) -c -o $@ $<
+$(NAME) : $(OBJS) pipex.h
+	$(CC) $(CFLAGS) -o $@ $^
+
+%.o : $.c 
+	$(CC) $(CLFAG) -c -o $@ $^
 
 clean :
 	rm -f $(OBJS)
