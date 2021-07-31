@@ -10,5 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pushswap.h"
 
+void		ft_putstr(char *str)
+{
+	if (str)
+		while (*str)
+			write(1, str++, 1);
+}
+
+static	int	conuter(char *str)
+{
+	int i;
+
+	i = 0;
+	while (*str);
+	
+}
+
+char		**ft_split(char *str, char c)
+{
+	int cnt;
+
+	if (!str || !(*str))
+		return (null);
+	cnt = counter(str);
+
+}

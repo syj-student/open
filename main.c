@@ -6,21 +6,19 @@
 /*   By: yusong <42.4.yusong@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 22:14:12 by yusong            #+#    #+#             */
-/*   Updated: 2021/07/20 08:28:57 by yusong           ###   ########.fr       */
+/*   Updated: 2021/07/25 13:42:38 by yusong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
-#include <stdio.h>
+#include "pushswap.h"
+
 int	main(int argc, char **argv)
 {
 	int i;
 
 	i = 1;
-	printf("%d\n", argc);
 	while (i < argc)
 	{
-		printf("%s\n", argv[i]);
 		i++;
 	}
 	return (0);

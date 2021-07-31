@@ -10,11 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef PUSHSWAP_H
+# define PUSHSWAP_H
 
 # include <unistd.h>
 # include <stdlib.h>
+
+void	ft_putstr(char *str);
 
 
 # endif
