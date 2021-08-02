@@ -19,21 +19,65 @@ void		ft_putstr(char *str)
 			write(1, str++, 1);
 }
 
-static	int	conuter(char *str)
+static char			**free_array(char **temp)
 {
-	int i;
+	size_t i;
 
 	i = 0;
-	while (*str);
-	
+	while (temp[i])
+		free(temp[i++]);
+	free(temp);
+	return (0);
 }
 
-char		**ft_split(char *str, char c)
+static size_t		g_cnt(char const *s, char c)
 {
-	int cnt;
+	size_t i;
+	size_t cnt;
 
-	if (!str || !(*str))
-		return (null);
-	cnt = counter(str);
+	if (s == 0)
+		return (0);
+	i = 0;
+	cnt = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			cnt++;
+			while (s[i] && s[i] != c)
+				i++;
+		}
+		else
+			i++;
+	}
+	return (cnt);
+}
 
+char				**ft_split(char const *s, char c)
+{
+	char	**ret;
+	size_t	i;
+	char	*start;
+	size_t	len;
+
+	if (s == 0 || !(ret = (char **)malloc(sizeof(char *) * (g_cnt(s, c) + 1))))
+		return (0);
+	i = 0;
+	while (*s)
+	{
+		if (*s != c)
+		{
+			start = (char *)s;
+			while (*s && *s != c)
+				s++;
+			len = s - start + 1;
+			if (!(ret[i] = (char *)malloc(sizeof(char) * len)))
+				return (free_array(ret));
+			ft_strlcpy(ret[i++], start, len);
+		}
+		else
+			s++;
+	}
+	ret[i] = 0;
+	return (ret);
 }

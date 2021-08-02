@@ -6,7 +6,7 @@
 /*   By: yusong <42.4.yusong@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 22:14:12 by yusong            #+#    #+#             */
-/*   Updated: 2021/07/25 13:42:38 by yusong           ###   ########.fr       */
+/*   Updated: 2021/08/02 16:00:59 by yusong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 int	main(int argc, char **argv)
 {
-	int i;
+	char	**tmp;
+	int		*stackA;
 
-	i = 1;
-	while (i < argc)
-	{
-		i++;
-	}
+	if (argc == 2)
+		tmp = ft_split(argv[1], ' ');
+	
 	return (0);
 }

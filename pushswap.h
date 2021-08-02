@@ -17,6 +17,7 @@
 # include <stdlib.h>
 
 void	ft_putstr(char *str);
+char	**ft_split(char const *s, char c);
 
 
 # endif
