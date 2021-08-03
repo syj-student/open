@@ -12,72 +12,49 @@
 
 #include "pushswap.h"
 
-void		ft_putstr(char *str)
+void	ft_putstr(char *str)
 {
 	if (str)
 		while (*str)
 			write(1, str++, 1);
 }
 
-static char			**free_array(char **temp)
+size_t	f_stacklen(char **str)
 {
-	size_t i;
+	int i;
 
+	if (!(str))
+		return (0)
 	i = 0;
-	while (temp[i])
-		free(temp[i++]);
-	free(temp);
-	return (0);
+	while (*str)
+	{
+		i++;
+		*str++;
+	}
+	return (i);
 }
 
-static size_t		g_cnt(char const *s, char c)
+size_t	f_strlen(char *str)
 {
-	size_t i;
-	size_t cnt;
+	int i;
 
-	if (s == 0)
+	if(!(str))
 		return (0);
 	i = 0;
-	cnt = 0;
-	while (s[i])
+	while (*str)
 	{
-		if (s[i] != c)
-		{
-			cnt++;
-			while (s[i] && s[i] != c)
-				i++;
-		}
-		else
-			i++;
+		i++;
+		str++;
 	}
-	return (cnt);
+	return (i);
 }
 
-char				**ft_split(char const *s, char c)
+char	*f_malloc(int size, int cnt)
 {
-	char	**ret;
-	size_t	i;
-	char	*start;
-	size_t	len;
+	char *tmp;
 
-	if (s == 0 || !(ret = (char **)malloc(sizeof(char *) * (g_cnt(s, c) + 1))))
-		return (0);
-	i = 0;
-	while (*s)
-	{
-		if (*s != c)
-		{
-			start = (char *)s;
-			while (*s && *s != c)
-				s++;
-			len = s - start + 1;
-			if (!(ret[i] = (char *)malloc(sizeof(char) * len)))
-				return (free_array(ret));
-			ft_strlcpy(ret[i++], start, len);
-		}
-		else
-			s++;
-	}
-	ret[i] = 0;
-	return (ret);
+	tmp = (char *)malloc(size * cnt);
+	if (!tmp)
+		exit(1);
+	return (tmp);
 }
