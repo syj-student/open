@@ -12,7 +12,3 @@
 
 #include "pushswap.h"
 
-void	checkvaild()
-{
-	
-}

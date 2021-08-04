@@ -12,10 +12,22 @@
       long double: "long double",                   char *: "pointer to char",        \
            void *: "pointer to void",                int *: "pointer to int",         \
           default: "other")
+void			iswhitespace(char **str)
+{
+	if (!str || !(**str))
+		return ;
+	while (**str == 32 || (9 <= **str && **str <= 13))
+		*str++;
+}
 
 int	main(int argc, char **argv)
 {
-	char *str = "Hello World I am yusong";
-	char **tmp;
-	printf("%s %s", argv[1], typename(argv[1]));
+	char str[23] = "Hello World I am yusong";
+	int i = 0;
+
+	while(i < argc)
+	{
+		printf("%s\n", argv[i]);
+		i++;
+	}
 }

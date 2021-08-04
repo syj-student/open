@@ -58,3 +58,21 @@ char	*f_malloc(int size, int cnt)
 		exit(1);
 	return (tmp);
 }
+
+void	f_cpy(char *dest, char *cpy)
+{
+	int i;
+
+	i = f_strlen(cpy);
+	while (i >= 0)
+	{
+		dest[i] = cpy[i];
+		i--;
+	}
+}
+
+void	checkvaild()
+{
+	checkint();
+	checkdup();
+}
