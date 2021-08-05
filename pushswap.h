@@ -16,6 +16,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+#define whitespace(c) (c == 32 || (9 <= c && c <= 13))
+
+char			*g_malloc[10];
 typedef	struct	s_deque
 {
 	int			no;
@@ -28,13 +31,16 @@ typedef	struct	s_deque
 /*
 **	utils_1.c
 */
-void			ft_putstr(char *str);
+void			f_exit(int i)
 size_t			f_stacklen(char **str);
 size_t			f_strlen(char *str);
 char			*f_malloc(int size, int cnt);
+void			f_cpy(char *dest, char *cpy);
 
 /*
 **	utils_2.c
 */
+
+
 
 # endif

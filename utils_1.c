@@ -12,11 +12,10 @@
 
 #include "pushswap.h"
 
-void	ft_putstr(char *str)
+void	f_exit(int i)
 {
-	if (str)
-		while (*str)
-			write(1, str++, 1);
+	write(1, "error\n", 6);
+	exit(i);
 }
 
 size_t	f_stacklen(char **str)
@@ -24,7 +23,7 @@ size_t	f_stacklen(char **str)
 	int i;
 
 	if (!(str))
-		return (0)
+		return (0);
 	i = 0;
 	while (*str)
 	{
@@ -52,10 +51,19 @@ size_t	f_strlen(char *str)
 char	*f_malloc(int size, int cnt)
 {
 	char *tmp;
+	int 	i;
 
 	tmp = (char *)malloc(size * cnt);
+	i = 0;
 	if (!tmp)
-		exit(1);
+	{
+		while (g_malloc[i])
+			free(g_malloc[i]);
+		f_exit(1);
+	}
+	while(g_malloc[i])
+		i++;
+	g_malloc[i] = tmp;
 	return (tmp);
 }
 
@@ -69,10 +77,4 @@ void	f_cpy(char *dest, char *cpy)
 		dest[i] = cpy[i];
 		i--;
 	}
-}
-
-void	checkvaild()
-{
-	checkint();
-	checkdup();
 }

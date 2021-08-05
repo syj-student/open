@@ -12,22 +12,35 @@
       long double: "long double",                   char *: "pointer to char",        \
            void *: "pointer to void",                int *: "pointer to int",         \
           default: "other")
-void			iswhitespace(char **str)
+
+#define whitespace(c) (c == 32 || (9 <= c && c <= 13))
+
+size_t	f_atoi(char *str)
 {
-	if (!str || !(**str))
-		return ;
-	while (**str == 32 || (9 <= **str && **str <= 13))
-		*str++;
+	size_t sign;
+	size_t ret;
+
+	sign = 1;
+	ret = 0;
+	if (!(str) || !(*str))
+		return (0);
+	while (whitespace(*str) || *str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign *= -1;
+		str++;
+	}
+	while ('0' <= *str && *str <= '9')
+	{
+		ret = ret * 10 + (*str - '0');
+		str++;
+	}
+	return (sign * ret);
 }
 
 int	main(int argc, char **argv)
 {
-	char str[23] = "Hello World I am yusong";
-	int i = 0;
-
-	while(i < argc)
-	{
-		printf("%s\n", argv[i]);
-		i++;
-	}
+	char *str = "  - - - --- -- - - -	 - - 123879";
+	int i = f_atoi(str);
+	printf("%d\n", i);
 }
