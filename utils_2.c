@@ -32,6 +32,12 @@ size_t	f_atoi(char *str)
 		ret = ret * 10 + (*str - '0');
 		str++;
 	}
+	while (*str)
+	{
+		if (!(whitespace(*str)))
+			f_exit(1);
+		str++;
+	}
 	return (sign * ret);
 }
 

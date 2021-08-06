@@ -13,34 +13,19 @@
            void *: "pointer to void",                int *: "pointer to int",         \
           default: "other")
 
-#define whitespace(c) (c == 32 || (9 <= c && c <= 13))
-
-size_t	f_atoi(char *str)
+typedef	struct	s_linklst
 {
-	size_t sign;
-	size_t ret;
+	int val;
+	int next;
+}				t_linklst;
 
-	sign = 1;
-	ret = 0;
-	if (!(str) || !(*str))
-		return (0);
-	while (whitespace(*str) || *str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
-	}
-	while ('0' <= *str && *str <= '9')
-	{
-		ret = ret * 10 + (*str - '0');
-		str++;
-	}
-	return (sign * ret);
-}
 
 int	main(int argc, char **argv)
 {
-	char *str = "  - - - --- -- - - -	 - - 123879";
-	int i = f_atoi(str);
-	printf("%d\n", i);
+    int *pi = (int *)malloc(sizeof(int)); //원하는 형식 포인터로 형변환
+    printf("초기: %d \n",*pi);
+    *pi= 20; //간접 연산으로 사용
+    printf("간접 연산을 수행한 후: %d\n",*pi);
+    free(pi); //더 이상 필요없을 때 해제
+    return 0;
 }
