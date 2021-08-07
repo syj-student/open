@@ -12,31 +12,31 @@
 
 #include "pushswap.h"
 
-void			fdeque_free(t_deque **head)
+void			fdeque_free(t_deque *head)
 {
 	t_deque *tmp;
-	t_deque *tmp_head;
 
-	tmp_head = *head;
-	if (!tmp_head)
+	if (!head)
 		return ;
-	while (!(tmp_head->location & 1))
+	while (!(head->location & 1))
 	{
-		tmp = tmp_head;
-		tmp_head = tmp_head->next;
+		tmp = head;
+		head = head->next;
 		free(tmp);
 	}
-	free(tmp_head);
-	f_exit(1);
+	free(head);
 }
 
 void			fdeque_append(t_deque **head, int val)
 {
-	t_deque *newdata;
+	t_deque		*newdata;
 
 	newdata = (t_deque *)malloc(sizeof(t_deque));
 	if (!newdata)
-		fdeque_free(head);
+	{
+		fdeque_free(*head);
+		f_exit(1);
+	}
 	newdata->val = val;
 	if (!(*head))
 		append_sub_1(head, newdata);
@@ -74,7 +74,7 @@ size_t	fdeque_len(t_deque *head)
 	if (!head)
 		return (0);
 	cnt = 1;
-	while (head->location & 1)
+	while (!(head->location & 1))
 	{
 		head = head->next;
 		cnt++;

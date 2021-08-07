@@ -6,7 +6,7 @@
 /*   By: yusong <42.4.yusong@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 22:14:12 by yusong            #+#    #+#             */
-/*   Updated: 2021/08/08 04:29:02 by yusong           ###   ########.fr       */
+/*   Updated: 2021/08/08 05:48:56 by yusong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_deque		*a;
-	//t_deque		*b;
+	t_deque		*b;
 	//t_dequeinfo	ainfo;
 	//t_dequeinfo	binfo;
 
@@ -27,10 +27,12 @@ int	main(int argc, char **argv)
 	
 	while (!(a->location & 1))
 	{
-		printf("%p %p %p %d\n", a, a->next, a->prev, a->val);
+		printf("%p %p %p %d %d\n", a, a->next, a->prev, a->val, a->location);
 		a = a->next;
 	}
 	printf("%p %p %p %d %d %d\n", a, a->next, a->prev, a->val, a->next->val, a->next->prev->val);
-
+	int i = fdeque_len(b);
+	printf("%d\n", i);
+	fdeque_free(b);
 	return (0);
 }

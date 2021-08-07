@@ -42,14 +42,14 @@ size_t				f_atoi(char *str);
 /*
 **	utils_3.c
 */
-void				fdeque_free(t_deque **head);
+void				fdeque_free(t_deque *head);
 void				fdeque_append(t_deque **head, int val);
 static	void		append_sub_1(t_deque **head, t_deque *newdata);
 static	void		append_sub_2(t_deque **head, t_deque *newdata);
 size_t				fdeque_len(t_deque *head);
 
 /*
-**	utils_3.c
+**	utils_4.c
 */
 
 # endif
