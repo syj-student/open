@@ -16,36 +16,40 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+// test
+# include <stdio.h>
+
 # define whitespace(c) (c == 32 || (9 <= c && c <= 13))
 
-typedef	struct	s_deque
+typedef	struct		s_deque
 {
-	int			val;
-	t_deque		prev;
-	t_deque		next;
-}				t_deque;
-
-typedef	struct	s_dequeinfo
-{
-	int			len;
-	t_deque		head;
-}				t_dequeinfo;
-
+	int				val;
+	char			location;
+	struct	s_deque	*prev;
+	struct	s_deque	*next;
+}					t_deque;
 
 /*
 **	utils_1.c
 */
-void			constinit(t_deque **a, t_deque **b, t_dequeinfo *ainfo, t_dequeinfo *binfo);
-
-
-/*
-**	utils_2.c
-*/
-size_t	f_atoi(char *str);
+void				f_exit(int i);
 
 /*
 **	utils_2.c
 */
+size_t				f_atoi(char *str);
 
+/*
+**	utils_3.c
+*/
+void				fdeque_free(t_deque **head);
+void				fdeque_append(t_deque **head, int val);
+static	void		append_sub_1(t_deque **head, t_deque *newdata);
+static	void		append_sub_2(t_deque **head, t_deque *newdata);
+size_t				fdeque_len(t_deque *head);
+
+/*
+**	utils_3.c
+*/
 
 # endif
