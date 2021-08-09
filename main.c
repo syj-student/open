@@ -6,7 +6,7 @@
 /*   By: yusong <42.4.yusong@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 22:14:12 by yusong            #+#    #+#             */
-/*   Updated: 2021/08/09 21:23:53 by yusong           ###   ########.fr       */
+/*   Updated: 2021/08/10 07:22:27 by yusong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,7 @@ void	test(t_deque *a, t_deque *b)
 	}
 	printf("===========\n\n");
 }
-void	test2(t_deque **a, t_deque **b)
-{
-	sasb(a, 'a');
-	pb(a, b);
-	pb(a, b);
-	pb(a, b);
-	sasb(a, 'a');
-	pa(a, b);
-	pa(a, b);
-	pa(a, b);
-	pa(a, b);
-}
+
 int	main(int argc, char **argv)
 {
 	t_deque		*a;
@@ -64,10 +53,5 @@ int	main(int argc, char **argv)
 	
 	checkvaild(tmp, argc, argv);
 	init(&a, &b, tmp, argc);
-	//test(a, b);
-
-	test2(&a, &b);
-
-	//test(a, b);
 	return (0);
 }
