@@ -12,13 +12,13 @@
 
 #include "pushswap.h"
 
-void			fdeque_free(t_deque *head)
+void	fdeque_free(t_deque *head)
 {
-	t_deque *tmp;
+	t_deque	*tmp;
 
 	if (!head)
 		return ;
-	while (!(head->location & 1))
+	while (!(head->end))
 	{
 		tmp = head;
 		head = head->next;
@@ -27,9 +27,30 @@ void			fdeque_free(t_deque *head)
 	free(head);
 }
 
-void			fdeque_append(t_deque **head, int val)
+static void	append_sub_1(t_deque **head, t_deque *newdata)
 {
-	t_deque		*newdata;
+	*head = newdata;
+	newdata->end = 1;
+	newdata->prev = newdata;
+	newdata->next = newdata;
+}
+
+static void	append_sub_2(t_deque *head, t_deque *newdata)
+{
+	t_deque	*tmp;
+
+	tmp = head->prev;
+	head->prev = newdata;
+	newdata->next = head;
+	tmp->next = newdata;
+	newdata->prev = tmp;
+	newdata->end = 1;
+	tmp->end = 0;
+}
+
+void	fdeque_append(t_deque **head, int val)
+{
+	t_deque	*newdata;
 
 	newdata = (t_deque *)malloc(sizeof(t_deque));
 	if (!newdata)
@@ -41,40 +62,17 @@ void			fdeque_append(t_deque **head, int val)
 	if (!(*head))
 		append_sub_1(head, newdata);
 	else
-		append_sub_2(head, newdata);
-}
-
-static	void	append_sub_1(t_deque **head, t_deque *newdata)
-{
-	*head = newdata;
-	newdata->location = 3;
-	newdata->prev = NULL;
-	newdata->next = NULL;
-}
-
-static	void	append_sub_2(t_deque **head, t_deque *newdata)
-{
-	t_deque *tmp;
-
-	tmp = *head;
-	tmp->prev = newdata;
-	newdata->next = tmp;
-	while (!(tmp->location & 1))
-		tmp = tmp->next;
-	tmp->next = newdata;
-	newdata->prev = tmp;
-	newdata->location = 1;
-	tmp->location &= ~1;
+		append_sub_2(*head, newdata);
 }
 
 size_t	fdeque_len(t_deque *head)
 {
-	size_t cnt;
+	size_t	cnt;
 
 	if (!head)
 		return (0);
 	cnt = 1;
-	while (!(head->location & 1))
+	while (!(head->end & 1))
 	{
 		head = head->next;
 		cnt++;

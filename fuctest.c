@@ -28,30 +28,19 @@ void	fdeque_append(t_deque *head, int a)
      head->next = newdata;
      printf("%d %d\n", head->onoff, a);
 }
-void bb(int **a, int *b)
+int  bb()
 {
-     *a = b;
+     return (0);
 }
-
-void aa(int **a)
+t_deque  *aa()
 {
-     int *b = (int *)malloc(4);
-     *b = 1;
-     printf("inside %p\n", *a);
-     bb(a, b);
-     //int *b = (int *)malloc(sizeof(int));
-
-     //*b = 10;
-     //*a = b;
-     //printf("a : %p\n", a);
-     //printf("*a : %p\n", *a);
+     return (0);
 }
 
 int	main(int argc, char **argv)
 {
-     int *a;
-     a = NULL;
-     aa(&a);
-     printf("main : %d\n", *a);
-     //free(a);
+     t_deque *a;
+     a = aa();
+     if (!a)
+          printf("%d", 10);
 }

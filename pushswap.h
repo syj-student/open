@@ -19,37 +19,48 @@
 // test
 # include <stdio.h>
 
-# define whitespace(c) (c == 32 || (9 <= c && c <= 13))
-
-typedef	struct		s_deque
+typedef struct s_deque
 {
 	int				val;
-	char			location;
+	char			end;
 	struct	s_deque	*prev;
 	struct	s_deque	*next;
 }					t_deque;
 
 /*
-**	utils_1.c
+**	utils_1.c 				/ 3
 */
-void				f_exit(int i);
+void			init(t_deque **a, t_deque **b, int *tmp, int len);
+void			f_exit(int i);
+void			checkvaild(int *tmp, int argc, char **argv);
+
 
 /*
-**	utils_2.c
+**	utils_2.c	static 1	/ 4
 */
-size_t				f_atoi(char *str);
+int				f_atoi(char *str);
+t_deque			*fdeque_pop(t_deque **head);
 
 /*
-**	utils_3.c
+**	utils_3.c	static 2	/ full
 */
-void				fdeque_free(t_deque *head);
-void				fdeque_append(t_deque **head, int val);
-static	void		append_sub_1(t_deque **head, t_deque *newdata);
-static	void		append_sub_2(t_deque **head, t_deque *newdata);
-size_t				fdeque_len(t_deque *head);
+void			fdeque_free(t_deque *head);
+void			fdeque_append(t_deque **head, int val);
+size_t			fdeque_len(t_deque *head);
 
 /*
-**	utils_4.c
+**	utils_4.c	static 1	/ full
 */
+void			pa(t_deque **a, t_deque **b);
+void			pb(t_deque **a, t_deque **b);
+int				sasb(t_deque **a, int c);
+void			ss(t_deque **a, t_deque **b);
 
+/*
+**	utils_5.c
+*/
+int				rarb(t_deque **a, char c);
+void			rr(t_deque **a, t_deque **b);
+int				rrarrb(t_deque **a, char c);
+void			rrr(t_deque **a, t_deque **b);
 # endif
