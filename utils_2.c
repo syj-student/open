@@ -28,7 +28,7 @@ int	f_atoi(char *str)
 	sign = 1;
 	ret = 0;
 	if (!(str) || !(*str))
-		f_exit(1);
+		f_exit(0);
 	while (whitespace(*str) || *str == '-' || *str == '+')
 	{
 		if (*str == '-')
@@ -36,7 +36,7 @@ int	f_atoi(char *str)
 		str++;
 	}
 	if (!('0' <= *str && *str <= '9'))
-		f_exit(1);
+		f_exit(0);
 	while ('0' <= *str && *str <= '9')
 	{
 		ret = ret * 10 + (*str - '0');
@@ -44,7 +44,7 @@ int	f_atoi(char *str)
 	}
 	ret *= sign;
 	if (*str || !(-2147483648 <= ret && ret <= 2147483647))
-		f_exit(1);
+		f_exit(0);
 	return (ret);
 }
 
@@ -67,4 +67,3 @@ t_deque	*fdeque_pop(t_deque **head)
 	ret->next->prev = ret->prev;
 	return (ret);
 }
-

@@ -33,10 +33,10 @@ typedef struct s_deque
 void			init(t_deque **a, t_deque **b, int *tmp, int len);
 void			f_exit(int i);
 void			checkvaild(int *tmp, int argc, char **argv);
-
+void			end(t_deque **a, t_deque **b);
 
 /*
-**	utils_2.c	static 1	/ 4
+**	utils_2.c	static 1	/ 3
 */
 int				f_atoi(char *str);
 t_deque			*fdeque_pop(t_deque **head);
@@ -57,10 +57,20 @@ int				sasb(t_deque **a, int c);
 void			ss(t_deque **a, t_deque **b);
 
 /*
-**	utils_5.c
+**	utils_5.c				/ 4
 */
 int				rarb(t_deque **a, char c);
 void			rr(t_deque **a, t_deque **b);
 int				rrarrb(t_deque **a, char c);
 void			rrr(t_deque **a, t_deque **b);
+
+/*
+**	sort_1.c	static 4	/ full
+*/
+void			sort(t_deque **a, t_deque **b);
+
+/*
+**	sort_2.c
+*/
+
 # endif

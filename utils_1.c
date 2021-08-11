@@ -12,18 +12,29 @@
 
 #include "pushswap.h"
 
-void	init(t_deque **a, t_deque **b, int *tmp, int len)
-{
-	*a = NULL;
-	*b = NULL;
-	while (1 < len--)
-		fdeque_append(a, tmp[len - 1]);
-}
-
 void	f_exit(int i)
 {
 	write(1, "Error\n", 6);
 	exit(i);
+}
+
+void	init(t_deque **a, t_deque **b, int *tmp, int len)
+{
+	int i;
+
+	i = 0;
+	while (i < len - 2)
+	{
+		if (!(tmp[i] < tmp[i + 1]))
+			break ;
+		i++;
+	}
+	if (i == len - 2 || len == 1 || len == 2)
+		exit(0);
+	*a = NULL;
+	*b = NULL;
+	while (1 < len--)
+		fdeque_append(a, tmp[len - 1]);
 }
 
 void	checkvaild(int *tmp, int argc, char **argv)
@@ -44,9 +55,16 @@ void	checkvaild(int *tmp, int argc, char **argv)
 		while (j < argc - 1)
 		{
 			if (tmp[i] == tmp[j])
-				f_exit(1);
+				f_exit(0);
 			j++;
 		}
 		i++;
 	}
+}
+
+void	end(t_deque **a, t_deque **b)
+{
+	fdeque_free(*a);
+	fdeque_free(*b);
+	exit(0);
 }

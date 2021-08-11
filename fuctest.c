@@ -28,19 +28,20 @@ void	fdeque_append(t_deque *head, int a)
      head->next = newdata;
      printf("%d %d\n", head->onoff, a);
 }
-int  bb()
+void  bb(t_deque **a)
 {
-     return (0);
+     int b;
+
+     b = (*a)->onoff;
+     printf("inside %d\n", b);
 }
-t_deque  *aa()
-{
-     return (0);
-}
+
 
 int	main(int argc, char **argv)
 {
-     t_deque *a;
-     a = aa();
-     if (!a)
-          printf("%d", 10);
+     t_deque tmp;
+     t_deque *tmp2;
+     tmp2 = &tmp;
+     tmp.onoff = 10;
+     bb(&tmp2);
 }
