@@ -67,3 +67,21 @@ t_deque	*fdeque_pop(t_deque **head)
 	ret->next->prev = ret->prev;
 	return (ret);
 }
+
+int	fdeque_max(t_deque **a)
+{
+	t_deque	*tmp;
+	int		max;
+
+	tmp = *a;
+	max =  tmp->val;
+	while (!(tmp->end))
+	{
+		if (tmp->val > max)
+			max = tmp->val;
+		tmp = tmp->next;
+	}
+	if (tmp->val > max)
+		max = tmp->val;
+	return (max);
+}

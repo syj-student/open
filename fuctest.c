@@ -39,9 +39,10 @@ void  bb(t_deque **a)
 
 int	main(int argc, char **argv)
 {
-     t_deque tmp;
-     t_deque *tmp2;
-     tmp2 = &tmp;
-     tmp.onoff = 10;
-     bb(&tmp2);
+     int i = 1;
+
+     if (i == 1);
+     else
+          printf("else");
+     return (0);
 }

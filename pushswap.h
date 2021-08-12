@@ -28,18 +28,20 @@ typedef struct s_deque
 }					t_deque;
 
 /*
-**	utils_1.c 				/ 3
+**	utils_1.c 				/ 4
 */
 void			init(t_deque **a, t_deque **b, int *tmp, int len);
 void			f_exit(int i);
 void			checkvaild(int *tmp, int argc, char **argv);
 void			end(t_deque **a, t_deque **b);
 
+
 /*
 **	utils_2.c	static 1	/ 3
 */
 int				f_atoi(char *str);
 t_deque			*fdeque_pop(t_deque **head);
+int				fdeque_max(t_deque **a);
 
 /*
 **	utils_3.c	static 2	/ full

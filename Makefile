@@ -6,14 +6,14 @@
 #    By: yusong <42.4.yusong@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/19 22:24:22 by yusong            #+#    #+#              #
-#    Updated: 2021/08/10 16:29:31 by yusong           ###   ########.fr        #
+#    Updated: 2021/08/12 09:09:30 by yusong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = gcc
-CFLAGS =# -Werror -Wextra -Wall
+CFLAGS = -g # -Werror -Wextra -Wall
 
 SRCS =	main.c \
 			utils_1.c utils_2.c utils_3.c utils_4.c utils_5.c \
