@@ -67,12 +67,16 @@ int				rrarrb(t_deque **a, char c);
 void			rrr(t_deque **a, t_deque **b);
 
 /*
-**	sort_1.c	static 4	/ full
+**	sort_1.c	static 1	/ full
 */
-void			sort(t_deque **a, t_deque **b);
+void			sort_sub_2(t_deque **a);
+void			sort_sub_3(t_deque **a);
+void			sort_sub_4(t_deque **a, t_deque **b);
+void			sort_sub_5(t_deque **a, t_deque **b);
 
 /*
 **	sort_2.c
 */
+void			sort(t_deque **a, t_deque **b);
 
 # endif
