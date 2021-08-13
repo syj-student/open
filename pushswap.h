@@ -73,11 +73,19 @@ void			sort(t_deque **a, t_deque **b);
 void			sort_sub_2(t_deque **a);
 void			sort_sub_3(t_deque **a);
 
+/*
+**	sort_2.c	static 1	/ full
+*/
+void	sort_sub_4_sub_0(t_deque **a, t_deque **b, int *val, int max);
+void	sort_sub_4_sub_1(t_deque **a, t_deque **b, int *val, int max);
+void	sort_sub_4_sub_2(t_deque **a, t_deque **b, int *val, int max);
+void	sort_sub_4_sub_3(t_deque **a, t_deque **b, int *val, int max);
 
 /*
-**	sort_2.c
+**	sort_2.c	static 1	/ 4
 */
-void			sort_sub_4(t_deque **a, t_deque **b);
-void			sort_sub_5(t_deque **a, t_deque **b);
+void	sort_sub_4_sub_4(t_deque **a, t_deque **b, int *val, int max);
+void	sort_sub_4(t_deque **a, t_deque **b);
+void	sort_sub_5(t_deque **a, t_deque **b);
 
 # endif
