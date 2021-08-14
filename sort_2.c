@@ -98,7 +98,7 @@ void	sort_sub_4_sub_3(t_deque **a, t_deque **b, int *val, int max)
 	if (val[0] > val[1] && val[0] > val[3])
 	{
 		rrarrb(a, 'a');
-		rarb(a, 'a');
+		sasb(a, 'a');
 		rrarrb(a, 'a');
 		if (val[1] > val[3])
 			sasb(a, 'a');
