@@ -33,8 +33,8 @@ int	rarb(t_deque **a, char c)
 
 void	rr(t_deque **a, t_deque **b)
 {
-	char flag;
-	char flag2;
+	char	flag;
+	char	flag2;
 
 	flag = rarb(a, 'r');
 	flag2 = rarb(b, 'r');
@@ -67,8 +67,8 @@ int	rrarrb(t_deque **a, char c)
 
 void	rrr(t_deque **a, t_deque **b)
 {
-	char flag;
-	char flag2;
+	char	flag;
+	char	flag2;
 
 	flag = rrarrb(a, 'r');
 	flag2 = rrarrb(b, 'r');

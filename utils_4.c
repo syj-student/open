@@ -41,7 +41,7 @@ static int	push_sub(t_deque **dest, t_deque *something)
 
 void	pa(t_deque **a, t_deque **b)
 {
-	char flag;
+	char	flag;
 
 	flag = push_sub(a, fdeque_pop(b));
 	if (flag)
@@ -50,7 +50,7 @@ void	pa(t_deque **a, t_deque **b)
 
 void	pb(t_deque **a, t_deque **b)
 {
-	char flag;
+	char	flag;
 
 	flag = push_sub(b, fdeque_pop(a));
 	if (flag)
@@ -80,8 +80,8 @@ int	sasb(t_deque **a, int c)
 
 void	ss(t_deque **a, t_deque **b)
 {
-	char flag;
-	char flag2;
+	char	flag;
+	char	flag2;
 
 	flag = sasb(a, 's');
 	flag2 = sasb(b, 's');

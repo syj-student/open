@@ -12,9 +12,9 @@
 
 #include "pushswap.h"
 
-void	sort(t_deque **a, t_deque **b)
+void	sort(t_deque **a, t_deque **b, int *sorted, int len)
 {
-	int len;
+	int	len;
 
 	len = fdeque_len(*a);
 	if (len == 2)
@@ -23,15 +23,14 @@ void	sort(t_deque **a, t_deque **b)
 		sort_sub_3(a);
 	else if (len == 4)
 		sort_sub_4(a, b);
-	else if (len == 5)
-		sort_sub_5(a, b);
+	//else if (len == 5)
+	//	sort_sub_5(a, b);
 	else
-		sort_sub_5(a, b);
+		sort_sub_5(a, b, sorted, len);
 }
 
 void	sort_sub_2(t_deque **a)
 {
-
 	if ((*a)->val > (*a)->next->val)
 		return ;
 	sasb(a, 'a');
@@ -43,6 +42,7 @@ static void	sort_sub_3_sub(int *val, int max, t_deque **a)
 	if (max == val[0])
 		sasb(a, 'a');
 	else if (max == val[1])
+	{
 		if (val[0] > val[2])
 		{
 			sasb(a, 'a');
@@ -50,7 +50,9 @@ static void	sort_sub_3_sub(int *val, int max, t_deque **a)
 		}
 		else
 			rrarrb(a, 'a');
+	}
 	else
+	{
 		if (val[0] > val[1])
 			rarb(a, 'a');
 		else
@@ -58,12 +60,13 @@ static void	sort_sub_3_sub(int *val, int max, t_deque **a)
 			rarb(a, 'a');
 			sasb(a, 'a');
 		}
+	}
 }
 
 void	sort_sub_3(t_deque **a)
 {
-	int val[3];
-	int max;
+	int	val[3];
+	int	max;
 
 	max = fdeque_max(a);
 	val[0] = (*a)->val;

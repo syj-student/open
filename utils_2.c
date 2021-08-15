@@ -22,8 +22,8 @@ static int	whitespace(char c)
 
 int	f_atoi(char *str)
 {
-	long long sign;
-	long long ret;
+	long long	sign;
+	long long	ret;
 
 	sign = 1;
 	ret = 0;
@@ -74,7 +74,7 @@ int	fdeque_max(t_deque **a)
 	int		max;
 
 	tmp = *a;
-	max =  tmp->val;
+	max = tmp->val;
 	while (!(tmp->end))
 	{
 		if (tmp->val > max)

@@ -20,7 +20,7 @@ void	f_exit(int i)
 
 void	init(t_deque **a, t_deque **b, int *tmp, int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < len - 2)
@@ -39,8 +39,8 @@ void	init(t_deque **a, t_deque **b, int *tmp, int len)
 
 void	checkvaild(int *tmp, int argc, char **argv)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < argc - 1)

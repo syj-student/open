@@ -23,8 +23,8 @@ typedef struct s_deque
 {
 	int				val;
 	char			end;
-	struct	s_deque	*prev;
-	struct	s_deque	*next;
+	struct s_deque	*prev;
+	struct s_deque	*next;
 }					t_deque;
 
 /*
@@ -34,7 +34,6 @@ void			init(t_deque **a, t_deque **b, int *tmp, int len);
 void			f_exit(int i);
 void			checkvaild(int *tmp, int argc, char **argv);
 void			end(t_deque **a, t_deque **b);
-
 
 /*
 **	utils_2.c	static 1	/ 3
@@ -69,23 +68,23 @@ void			rrr(t_deque **a, t_deque **b);
 /*
 **	sort_1.c	static 1	/ 4
 */
-void			sort(t_deque **a, t_deque **b);
+void			sort(t_deque **a, t_deque **b, int *sorted, int len);
 void			sort_sub_2(t_deque **a);
 void			sort_sub_3(t_deque **a);
 
 /*
 **	sort_2.c	static 1	/ full
 */
-void	sort_sub_4_sub_0(t_deque **a, t_deque **b, int *val, int max);
-void	sort_sub_4_sub_1(t_deque **a, t_deque **b, int *val, int max);
-void	sort_sub_4_sub_2(t_deque **a, t_deque **b, int *val, int max);
-void	sort_sub_4_sub_3(t_deque **a, t_deque **b, int *val, int max);
+void			sort_sub_4_sub_0(t_deque **a, t_deque **b, int *val, int max);
+void			sort_sub_4_sub_1(t_deque **a, t_deque **b, int *val, int max);
+void			sort_sub_4_sub_2(t_deque **a, t_deque **b, int *val, int max);
+void			sort_sub_4_sub_3(t_deque **a, t_deque **b, int *val, int max);
 
 /*
 **	sort_2.c	static 1	/ 4
 */
-void	sort_sub_4_sub_4(t_deque **a, t_deque **b, int *val, int max);
-void	sort_sub_4(t_deque **a, t_deque **b);
-void	sort_sub_5(t_deque **a, t_deque **b);
+void			sort_sub_4_sub_4(t_deque **a, t_deque **b, int *val, int max);
+void			sort_sub_4(t_deque **a, t_deque **b);
+void			sort_sub_5(t_deque **a, t_deque **b, int *sorted, int len);
 
-# endif
+#endif

@@ -44,16 +44,16 @@ void	sort_sub_4_sub_4(t_deque **a, t_deque **b, int *val, int max)
 		sasb(a, 'a');
 		rarb(a, 'a');
 		rarb(a, 'a');
-		if (val[1] >val[0])
+		if (val[1] > val[0])
 			sasb(a, 'a');
 	}
 }
 
 void	sort_sub_4(t_deque **a, t_deque **b)
 {
-	t_deque *tmp_a;
-	int val[4];
-	int max;
+	t_deque	*tmp_a;
+	int		val[4];
+	int		max;
 
 	tmp_a = *a;
 	max = 0;
@@ -67,7 +67,21 @@ void	sort_sub_4(t_deque **a, t_deque **b)
 	sort_sub_4_sub_0(a, b, val, max);
 }
 
-void	sort_sub_5(t_deque **a, t_deque **b)
+void	sort_sub_5(t_deque **a, t_deque **b, int *sorted, int len)
 {
+	int middle;
+	t_deque tmp_a;
 
+	if (len > 2)
+	{
+		tmp_a = *a;
+		middle = (len - 1) / 2;
+		while (len)
+		{
+			if (tmp_a->val <= sorted[middle])
+			{
+				pb()
+			}
+		}
+	}
 }

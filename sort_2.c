@@ -42,7 +42,7 @@ void	sort_sub_4_sub_1(t_deque **a, t_deque **b, int *val, int max)
 		sasb(a, 'a');
 		rrarrb(a, 'a');
 		rrarrb(a, 'a');
-		if (val[1] > val[2])
+		if (val[1] < val[2])
 			sasb(a, 'a');
 	}
 }
