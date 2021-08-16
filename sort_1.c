@@ -14,14 +14,14 @@
 
 void	sort(t_deque **a, t_deque **b, int *sorted, int len)
 {
-	int	len;
+	int	len2;
 
-	len = fdeque_len(*a);
-	if (len == 2)
+	len2 = fdeque_len(*a);
+	if (len2 == 2)
 		sort_sub_2(a);
-	else if (len == 3)
+	else if (len2 == 3)
 		sort_sub_3(a);
-	else if (len == 4)
+	else if (len2 == 4)
 		sort_sub_4(a, b);
 	//else if (len == 5)
 	//	sort_sub_5(a, b);

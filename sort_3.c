@@ -67,21 +67,34 @@ void	sort_sub_4(t_deque **a, t_deque **b)
 	sort_sub_4_sub_0(a, b, val, max);
 }
 
+static void	sub(t_deque **a, t_deque **b, int *level,)
+{
+
+	
+}
+
 void	sort_sub_5(t_deque **a, t_deque **b, int *sorted, int len)
 {
-	int middle;
-	t_deque tmp_a;
+	static stocklen[len];
+	int	middle;
+	int	len2;
 
-	if (len > 2)
+	len2 = fdeque_len(*a);
+	if (len2 > 2)
 	{
-		tmp_a = *a;
-		middle = (len - 1) / 2;
-		while (len)
+		middle = len / 2;
+		printf("check %d %d %d \n", len2, middle, sorted[middle]);
+		while (len2)
 		{
-			if (tmp_a->val <= sorted[middle])
-			{
-				pb()
-			}
+			//printf("%d %d\n", (*a)->prev->val, sorted[middle]);
+			if ((*a)->prev->val <= sorted[middle])
+				pb(a, b);
+			else
+				rarb(a, 'a');
+			len2--;
 		}
 	}
+	else
+		return ;
+	sort_sub_5(a, b, sorted, len / 2);
 }

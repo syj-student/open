@@ -14,20 +14,33 @@
 
 void mergeSort(int data[], int *ret, int p, int r);
 void merge(int data[], int *ret, int p, int q, int r);
+void    testprint(int *test)
+{
+    for (int i = 0; i < 10; i++)
+        printf("%d ", test[i]);
+    printf("\n");
+}
+void    statictestprint(int *test)
+{
+    testprint(test);
+}
+void    statictest(int i, int j, const int len)
+{
+    const int tmp;
+    tmp = len;
+    static int test[tmp];
+    if (i == 10)
+    {
+        statictestprint(test);
+        return;
+    }
+    test[i] = j;
+    testprint(test);
+    printf("-----------------\n");
+    statictest(++i, ++j, len);
+}
 int main() {
-	 int ret[8];
-     int data[8] = {5,2,4,7,1,3,2,6} , i;
-     printf("정렬 전\n");    
-     for(i = 0; i < 8; i++) {
-         printf("%d ", data[i]);
-     }
-     mergeSort(data, ret,  0, 7);
-     printf("\n정렬 후\n");
-     for(i = 0; i < 8; i++) {
-         printf("%d ", ret[i]);
-     }
-	 printf("\n");
-  return 0;
+    statictest(0, -1, 10);
 }
 void mergeSort(int data[], int *ret, int p, int r) {
     int q;
