@@ -75,8 +75,6 @@ void	sub(t_deque **a, t_deque **b, int cnt)
 	int		middle;
 	t_deque	*tmp;
 
-	printf("sub %d\n", cnt);
-	test((*a), (*b));
 	if (cnt == 0)
 		return ;
 	tmp = (*b)->prev;
@@ -115,7 +113,7 @@ void	sub(t_deque **a, t_deque **b, int cnt)
 		while (cnt3--)
 			rrarrb(b, 'b');
 		sub2(a, b, cnt2);
-		sub2(a, b, middle);
+		sub(a, b, middle);
 	}
 }
 
@@ -126,7 +124,6 @@ void	sub2(t_deque **a, t_deque **b, int cnt2)
 	int		cnt3;
 	int		cnt_tmp;
 	int		middle;
-	printf("sub2 %d\n", cnt2);
 	if (cnt2 == 0)
 		return ;
 	tmp = (*a)->prev;
@@ -162,7 +159,7 @@ void	sub2(t_deque **a, t_deque **b, int cnt2)
 		middle = cnt3;
 		while (cnt3--)
 			rrarrb(a, 'a');
-		sub(a, b, middle);
+		sub2(a, b, middle);
 		sub(a, b, cnt1);
 	}
 }
