@@ -26,7 +26,7 @@ typedef struct s_deque
 	struct s_deque	*prev;
 	struct s_deque	*next;
 }					t_deque;
-
+void	test(t_deque *a, t_deque *b);
 /*
 **	utils_1.c 				/ 4
 */
@@ -86,5 +86,8 @@ void			sort_sub_4_sub_3(t_deque **a, t_deque **b, int *val, int max);
 void			sort_sub_4_sub_4(t_deque **a, t_deque **b, int *val, int max);
 void			sort_sub_4(t_deque **a, t_deque **b);
 void			sort_sub_5(t_deque **a, t_deque **b, int *sorted, int len);
+
+void	sub(t_deque **a, t_deque **b, int cnt2);
+void	sub2(t_deque **a, t_deque **b, int cnt2);
 
 #endif
