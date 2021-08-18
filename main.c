@@ -6,7 +6,7 @@
 /*   By: yusong <42.4.yusong@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 22:14:12 by yusong            #+#    #+#             */
-/*   Updated: 2021/08/17 23:25:05 by yusong           ###   ########.fr       */
+/*   Updated: 2021/08/18 01:34:06 by yusong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ int	main(int argc, char **argv)
 	init(&a, &b, tmp, argc);
 	mergeSort(tmp, sorted, 0, argc - 2);
 
-	//test(a, b);
+	test(a, b);
 	sort(&a, &b, sorted, argc - 1);
-	//test(a, b);
+	test(a, b);
 
 	end(&a, &b);
 	return (0);

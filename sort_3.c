@@ -75,6 +75,8 @@ void	sub(t_deque **a, t_deque **b, int cnt)
 	int		middle;
 	t_deque	*tmp;
 
+	//test(*a, *b);
+	//printf("sub %d\n", cnt);
 	if (cnt == 0)
 		return ;
 	tmp = (*b)->prev;
@@ -98,7 +100,7 @@ void	sub(t_deque **a, t_deque **b, int cnt)
 		cnt3 = 0;
 		while (cnt--)
 		{
-			if ((*b)->prev->val > middle)
+			if ((*b)->prev->val >= middle)
 			{
 				pa(a, b);
 				cnt2++;
