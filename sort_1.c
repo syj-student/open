@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-void	sort(t_deque **a, t_deque **b, int *sorted, int len)
+void	sort(t_deque **a, t_deque **b, int len)
 {
 	int	len2;
 
@@ -23,10 +23,8 @@ void	sort(t_deque **a, t_deque **b, int *sorted, int len)
 		sort_sub_3(a);
 	else if (len2 == 4)
 		sort_sub_4(a, b);
-	//else if (len == 5)
-	//	sort_sub_5(a, b);
 	else
-		sort_sub_5(a, b, sorted, len);
+		sort_sub_5(a, b, len);
 }
 
 void	sort_sub_2(t_deque **a)

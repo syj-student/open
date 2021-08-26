@@ -15,11 +15,5 @@
 
 int main(void)
 {
-    char *tmp = "Hello Wolrd\n";
-    char tmp2[] = "Hello World\n";
 
-    printf("%s%s", tmp, tmp2);
-    tmp2[0] = 'a';
-    printf("%s%s", typename(tmp), typename(tmp2));
-    return (0);
 }

@@ -68,3 +68,13 @@ void	end(t_deque **a, t_deque **b)
 	fdeque_free(*b);
 	exit(0);
 }
+
+int	fdeque_index(t_deque **a, int index)
+{
+	t_deque *tmp;
+
+	tmp = (*a)->prev;
+	while (index--)
+		tmp = tmp->prev;
+	return (tmp->val);
+}
