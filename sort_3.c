@@ -242,3 +242,4 @@ void	sort_sub_5(t_deque **a, t_deque **b, int len)
 	}
 	tmp1(a, b, cnt[0]);
 }
+
