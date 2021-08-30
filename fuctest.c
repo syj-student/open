@@ -1,17 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
-    #define typename(x) _Generic((x),                                                 \
-            _Bool: "_Bool",                  unsigned char: "unsigned char",          \
-             char: "char",                     signed char: "signed char",            \
-        short int: "short int",         unsigned short int: "unsigned short int",     \
-              int: "int",                     unsigned int: "unsigned int",           \
-         long int: "long int",           unsigned long int: "unsigned long int",      \
-    long long int: "long long int", unsigned long long int: "unsigned long long int", \
-            float: "float",                         double: "double",                 \
-      long double: "long double",                   char *: "pointer to char",        \
-           void *: "pointer to void",                int *: "pointer to int",         \
-          default: "other")
 
+void	merge_sort(int *lst, int start, int end)
+{
+	int	mid;
+
+	while (start < end)
+	{
+		mid = (start + end) / 2;
+		merge_sort(lst, start, mid);
+		merge_sort(lst, mid + 1, end);
+		merge_sort_sub(lst, start, mid, end);
+	}
+}
+
+void	merge_sort_sub(int *lst, int start, int mid , int end)
+{
+	int	i;
+	int	j;
+	int	k;
+	int	new_lst[500];
+
+	i = start;
+	j = mid + 1;
+	k = start;
+	while (i <= start && j <= end)
+		if (lst[i] <= lst[j])
+			new_lst[k++] = lst[i++];
+		else
+			new_lst[k++] = lst[j++];
+	while (i <= start)
+		new_lst[k++] = lst[i++];
+	while (j <= end)
+		new_lst[k++] = lst[j++];
+	while (start <= end)
+		lst[start] = new_lst[start++];
+}
 
 int main(void)
 {
