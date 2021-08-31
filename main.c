@@ -6,7 +6,7 @@
 /*   By: yusong <42.4.yusong@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 22:14:12 by yusong            #+#    #+#             */
-/*   Updated: 2021/09/01 01:53:32 by yusong           ###   ########.fr       */
+/*   Updated: 2021/09/01 02:05:30 by yusong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	merge_sort(int *lst, int start, int end)
 	}
 }
 
-static void merge_sort_sub_sub(int *lst, int *new_lst, int *i)
+static void	merge_sort_sub_sub(int *lst, int *new_lst, int *i)
 {
 	while (i[0] <= i[3] && i[1] <= i[4])
 	{
@@ -77,7 +77,7 @@ void	merge_sort_sub(int *lst, int start, int mid, int end)
 	free(new_lst);
 }
 
-int		*int_malloc(int cnt)
+int	*int_malloc(int cnt)
 {
 	int	*ret;
 

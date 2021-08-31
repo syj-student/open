@@ -71,7 +71,7 @@ void	end(t_deque **a, t_deque **b)
 
 int	fdeque_index(t_deque **a, int index)
 {
-	t_deque *tmp;
+	t_deque	*tmp;
 
 	tmp = (*a)->prev;
 	while (index--)

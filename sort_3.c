@@ -64,7 +64,6 @@ void	sort_rec_2(t_deque **a, t_deque **b, int len)
 		rewind(b, 'b', cnt[2]);
 		sort_rec_sub(a, b, cnt[2]);
 	}
-
 }
 
 static void	sort_rec0(t_deque **a, t_deque **b, int len, int *cnt)
