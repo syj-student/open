@@ -6,7 +6,7 @@
 /*   By: yusong <42.4.yusong@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 22:14:12 by yusong            #+#    #+#             */
-/*   Updated: 2021/08/31 21:48:36 by yusong           ###   ########.fr       */
+/*   Updated: 2021/08/31 21:53:35 by yusong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int	main(int argc, char **argv)
 	checkvaild(tmp, argc, argv);
 	init(&a, &b, tmp, argc);
 	sort(&a, &b, argc - 1);
+	test(a, b);
 	end(&a, &b);
 	return (0);
 }

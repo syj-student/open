@@ -74,19 +74,16 @@ void	sort_sub_3(t_deque **a)
 void	sort_sub_4(t_deque **a, t_deque **b)
 {
 	int		min;
-	int		flag;
 	t_deque	*tmp_a;
+	int		i;
 
 	tmp_a = (*a)->prev;
 	min = fdeque_min(a);
-	flag = 1;
-	while (flag)
+	i = 4;
+	while (i--)
 	{
 		if (tmp_a->val == min)
-		{
 			pb(a, b);
-			flag--;
-		}
 		else
 			rarb(a, 'a');
 		tmp_a = (*a)->prev;

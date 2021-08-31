@@ -16,19 +16,14 @@ void	sort_sub_5(t_deque **a, t_deque **b, int len)
 {
 	int		tmp[2];
 	t_deque	*tmp_a;
-	int		flag;
 
 	tmp_a = (*a)->prev;
 	tmp[0] = fdeque_max(a);
 	tmp[1] = fdeque_min(a);
-	flag = 2;
-	while (flag)
+	while (len--)
 	{
 		if (tmp_a->val == tmp[0] || tmp_a->val == tmp[1])
-		{
 			pb(a, b);
-			flag--;
-		}
 		else
 			rarb(a, 'a');
 		tmp_a = (*a)->prev;
