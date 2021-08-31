@@ -12,104 +12,199 @@
 
 #include "pushswap.h"
 
-void	sort_sub_4_sub_0(t_deque **a, t_deque **b, int *val, int max)
+void	sort_sub_5(t_deque **a, t_deque **b, int len)
 {
-	if (max == val[0])
-		sort_sub_4_sub_1(a, b, val, max);
-	else if (max == val[1])
-		sort_sub_4_sub_2(a, b, val, max);
-	else if (max == val[2])
-		sort_sub_4_sub_3(a, b, val, max);
-	else if (max == val[3])
-		sort_sub_4_sub_4(a, b, val, max);
-}
+	int		tmp[2];
+	t_deque	*tmp_a;
+	int		flag;
 
-void	sort_sub_4_sub_1(t_deque **a, t_deque **b, int *val, int max)
-{
-	if (val[1] > val[2] && val[1] > val[3])
-		sasb(a, 'a');
-	else if (val[2] > val[1] && val[2] > val[3])
+	tmp_a = (*a)->prev;
+	tmp[0] = fdeque_max(a);
+	tmp[1] = fdeque_min(a);
+	flag = 2;
+	while (flag)
 	{
-		pb(a, b);
-		sasb(a, 'a');
-		pa(a, b);
-		if (val[3] > val[1])
-			sasb(a, 'a');
-	}
-	else
-	{
-		rrarrb(a, 'a');
-		sasb(a, 'a');
-		rrarrb(a, 'a');
-		rrarrb(a, 'a');
-		if (val[1] < val[2])
-			sasb(a, 'a');
-	}
-}
-
-void	sort_sub_4_sub_2(t_deque **a, t_deque **b, int *val, int max)
-{
-	if (val[0] > val[2] && val[0] > val[3])
-	{
-		pb(a, b);
-		pb(a, b);
-		if (val[3] > val[2])
-			ss(a, b);
+		if (tmp_a->val == tmp[0] || tmp_a->val == tmp[1])
+		{
+			pb(a, b);
+			flag--;
+		}
 		else
-			sasb(a, 'a');
-		pa(a, b);
-		pa(a, b);
+			rarb(a, 'a');
+		tmp_a = (*a)->prev;
 	}
-	else if (val[2] > val[0] && val[2] > val[3])
+	sort_sub_3(a);
+	pa(a, b);
+	pa(a, b);
+	if ((*a)->prev->val < (*a)->prev->prev->val)
+		sasb(a, 'a');
+	rarb(a, 'a');
+}
+
+void		fdeque_pivot(t_deque **a, int *pivot, int len)
+{
+	int		i;
+	int		tmp_lst[500];
+	t_deque	*tmp_a;
+
+	tmp_a = (*a)->prev;
+	i = -1;
+	while (i++ < len - 1)
 	{
-		rrarrb(a, 'a');
-		if (val[0] > val[3])
-			sasb(a, 'a');
+		tmp_lst[i] = tmp_a->val;
+		tmp_a = tmp_a->prev;
+	}
+	merge_sort(tmp_lst, 0, len - 1);
+	i = len * 0.34;
+	pivot[0] = tmp_lst[i];
+	i = len * 0.34 * 2;
+	pivot[1] = tmp_lst[i];
+}
+
+void	sort_rec_sub(t_deque **a, t_deque **b, int len)
+{
+	int	pivot[2];
+	int	cnt[3];
+	int	tmp;
+
+	if (len <= 2)
+	{
+		if (len == 2 && (*b)->prev->val < (*b)->prev->prev->val)
+			sasb(b, 'b');
+		while (0 < len--)
+			pa(a, b);
+		return ;
 	}
 	else
 	{
-		sasb(a, 'a');
-		rrarrb(a, 'a');
-		if (val[0] > val[2])
-			sasb(a, 'a');
+		cnt[0] = 0;
+		cnt[1] = 0;
+		cnt[2] = 0;
+		fdeque_pivot(b, pivot, len);
+		while (len--)
+		{
+			if (pivot[1] <= (*b)->prev->val)
+			{
+				pa(a, b);
+				cnt[0]++;
+			}
+			else if (pivot[0] <= (*b)->prev->val)
+			{
+				pa(a, b);
+				rarb(a, 'a');
+				cnt[1]++;
+			}
+			else
+			{
+				rarb(b, 'b');
+				cnt[2]++;
+			}
+		}
+		sort_rec_2(a, b, cnt[0]);
+		tmp = cnt[1];
+		while (0 < tmp--)
+			rrarrb(a, 'a');
+		sort_rec_2(a, b, cnt[1]);
+		tmp = cnt[2];
+		while (0 < tmp--)
+			rrarrb(b, 'b');
+		sort_rec_sub(a, b, cnt[2]);
 	}
 }
 
-static void	sort_sub_4_sub_3_sub(t_deque **a, t_deque **b, int *val, int max)
+void	sort_rec_2(t_deque **a, t_deque **b, int len)
 {
-	if (val[3] > val[0])
+	int	pivot[2];
+	int	cnt[3];
+	int	tmp;
+
+	if (len <= 2)
 	{
-		sasb(a, 'a');
-		rrarrb(a, 'a');
-		sasb(a, 'a');
-		rarb(a, 'a');
+		if (len == 2 && (*a)->prev->val > (*a)->prev->prev->val)
+			sasb(a, 'a');
+		return ;
 	}
 	else
 	{
-		pb(a, b);
-		sasb(a, 'a');
-		rrarrb(a, 'a');
-		pa(a, b);
+		cnt[0] = 0;
+		cnt[1] = 0;
+		cnt[2] = 0;
+		fdeque_pivot(a, pivot, len);
+		while (len--)
+		{
+			if (pivot[1] <= (*a)->prev->val)
+			{
+				rarb(a, 'a');
+				cnt[0]++;
+			}
+			else if (pivot[0] <= (*a)->prev->val)
+			{
+				pb(a, b);
+				cnt[1]++;
+			}
+			else
+			{
+				pb(a, b);
+				rarb(b, 'b');
+				cnt[2]++;
+			}
+		}
+		tmp = cnt[0];
+		while (0 < tmp--)
+			rrarrb(a, 'a');
+		sort_rec_2(a, b, cnt[0]);
+		sort_rec_sub(a, b, cnt[1]);
+		tmp = cnt[2];
+		while (0 < tmp--)
+			rrarrb(b, 'b');
+		sort_rec_sub(a, b, cnt[2]);
 	}
+
 }
 
-void	sort_sub_4_sub_3(t_deque **a, t_deque **b, int *val, int max)
+void	sort_rec(t_deque **a, t_deque **b, int len)
 {
-	if (val[0] > val[1] && val[0] > val[3])
+	int	pivot[2];
+	int	cnt[3];
+	int	tmp;
+
+	if (len <= 2)
 	{
-		rrarrb(a, 'a');
-		sasb(a, 'a');
-		rrarrb(a, 'a');
-		if (val[1] > val[3])
+		if (len == 2 && (*a)->prev->val > (*a)->prev->prev->val)
 			sasb(a, 'a');
+		return ;
 	}
-	else if (val[1] > val[0] && val[1] > val[3])
-		sort_sub_4_sub_3_sub(a, b, val, max);
 	else
 	{
-		rrarrb(a, 'a');
-		rrarrb(a, 'a');
-		if (val[1] > val[0])
-			sasb(a, 'a');
+		cnt[0] = 0;
+		cnt[1] = 0;
+		cnt[2] = 0;
+		fdeque_pivot(a, pivot, len);
+		while (len--)
+		{
+			if (pivot[1] <= (*a)->prev->val)
+			{
+				rarb(a, 'a');
+				cnt[0]++;
+			}
+			else if (pivot[0] <= (*a)->prev->val)
+			{
+				pb(a, b);
+				cnt[1]++;
+			}
+			else
+			{
+				pb(a, b);
+				rarb(b, 'b');
+				cnt[2]++;
+			}
+		}
+		sort_rec(a, b, cnt[0]);
+		sort_rec_sub(a, b, cnt[1]);
+		tmp = cnt[2];
+		while (0 <tmp--)
+			rrarrb(b, 'b');
+		sort_rec_sub(a, b, cnt[2]);
 	}
+
 }

@@ -27,24 +27,27 @@ typedef struct s_deque
 // test
 # include <stdio.h>
 void	test(t_deque *a, t_deque *b);
-void	tmp1(t_deque **a, t_deque **b, int len);
-void	tmp2(t_deque **a, t_deque **b, int len);
-void	tmp3(t_deque **a, t_deque **b, int len);
+void	merge_sort(int *lst, int start, int end);
+void	merge_sort_sub(int *lst, int start, int mid , int end);
+
+
+
 /*
 **	utils_1.c 				/ full
 */
-void			init(t_deque **a, t_deque **b, int *tmp, int len);
 void			f_exit(int i);
+void			init(t_deque **a, t_deque **b, int *tmp, int len);
 void			checkvaild(int *tmp, int argc, char **argv);
 void			end(t_deque **a, t_deque **b);
 int				fdeque_index(t_deque **a, int index);
 
 /*
-**	utils_2.c	static 1	/ 3
+**	utils_2.c	static 1	/ full
 */
 int				f_atoi(char *str);
 t_deque			*fdeque_pop(t_deque **head);
 int				fdeque_max(t_deque **a);
+int				fdeque_min(t_deque **a);
 
 /*
 **	utils_3.c	static 2	/ full
@@ -70,28 +73,25 @@ int				rrarrb(t_deque **a, char c);
 void			rrr(t_deque **a, t_deque **b);
 
 /*
-**	sort_1.c	static 1	/ 4
+**	sort_1.c	static 1	/ full
 */
 void			sort(t_deque **a, t_deque **b, int len);
 void			sort_sub_2(t_deque **a);
 void			sort_sub_3(t_deque **a);
-
-/*
-**	sort_2.c	static 1	/ full
-*/
-void			sort_sub_4_sub_0(t_deque **a, t_deque **b, int *val, int max);
-void			sort_sub_4_sub_1(t_deque **a, t_deque **b, int *val, int max);
-void			sort_sub_4_sub_2(t_deque **a, t_deque **b, int *val, int max);
-void			sort_sub_4_sub_3(t_deque **a, t_deque **b, int *val, int max);
-
-/*
-**	sort_2.c	static 1	/ 4
-*/
-void			sort_sub_4_sub_4(t_deque **a, t_deque **b, int *val, int max);
 void			sort_sub_4(t_deque **a, t_deque **b);
-void			sort_sub_5(t_deque **a, t_deque **b, int len);
 
-void	sub(t_deque **a, t_deque **b, int cnt2);
-void	sub2(t_deque **a, t_deque **b, int cnt2);
+/*
+**	sort_2.c
+*/
+void			sort_sub_5(t_deque **a, t_deque **b, int len);
+void			fdeque_pivot(t_deque **a,int *pivot, int len);
+void			sort_rec(t_deque **a, t_deque **b, int len);
+void			sort_rec_2(t_deque **a, t_deque **b, int len);
+
+
+/*
+**	sort_2.c				/2
+*/
+
 
 #endif

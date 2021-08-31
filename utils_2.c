@@ -85,3 +85,21 @@ int	fdeque_max(t_deque **a)
 		max = tmp->val;
 	return (max);
 }
+
+int	fdeque_min(t_deque **a)
+{
+	t_deque	*tmp;
+	int		max;
+
+	tmp = *a;
+	max = tmp->val;
+	while (!(tmp->end))
+	{
+		if (tmp->val < max)
+			max = tmp->val;
+		tmp = tmp->next;
+	}
+	if (tmp->val < max)
+		max = tmp->val;
+	return (max);
+}

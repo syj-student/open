@@ -14,17 +14,16 @@
 
 void	sort(t_deque **a, t_deque **b, int len)
 {
-	int	len2;
-
-	len2 = fdeque_len(*a);
-	if (len2 == 2)
+	if (len == 2)
 		sort_sub_2(a);
-	else if (len2 == 3)
+	else if (len == 3)
 		sort_sub_3(a);
-	else if (len2 == 4)
+	else if (len == 4)
 		sort_sub_4(a, b);
-	else
+	else if (len == 5)
 		sort_sub_5(a, b, len);
+	else
+		sort_rec(a, b, len);
 }
 
 void	sort_sub_2(t_deque **a)
@@ -32,7 +31,6 @@ void	sort_sub_2(t_deque **a)
 	if ((*a)->val > (*a)->next->val)
 		return ;
 	sasb(a, 'a');
-	return ;
 }
 
 static void	sort_sub_3_sub(int *val, int max, t_deque **a)
@@ -71,4 +69,28 @@ void	sort_sub_3(t_deque **a)
 	val[1] = (*a)->next->val;
 	val[2] = (*a)->next->next->val;
 	sort_sub_3_sub(val, max, a);
+}
+
+void	sort_sub_4(t_deque **a, t_deque **b)
+{
+	int		min;
+	int		flag;
+	t_deque	*tmp_a;
+
+	tmp_a = (*a)->prev;
+	min = fdeque_min(a);
+	flag = 1;
+	while (flag)
+	{
+		if (tmp_a->val == min)
+		{
+			pb(a, b);
+			flag--;
+		}
+		else
+			rarb(a, 'a');
+		tmp_a = (*a)->prev;
+	}
+	sort_sub_3(a);
+	pa(a, b);
 }

@@ -49,7 +49,7 @@ void	checkvaild(int *tmp, int argc, char **argv)
 		i++;
 	}
 	i = 0;
-	while (i <argc - 2)
+	while (i < argc - 2)
 	{
 		j = i + 1;
 		while (j < argc - 1)
