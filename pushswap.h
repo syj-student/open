@@ -22,10 +22,10 @@ typedef struct s_deque
 	char			end;
 	struct s_deque	*prev;
 	struct s_deque	*next;
-}					t_deque;
+}				t_deque;
 
 /*
-**	main.c 					/ 2
+**	main.c		static 1	/ full
 */
 void			merge_sort(int *lst, int start, int end);
 void			merge_sort_sub(int *lst, int start, int mid , int end);
@@ -80,17 +80,19 @@ void			sort_sub_3(t_deque **a);
 void			sort_sub_4(t_deque **a, t_deque **b);
 
 /*
-**	sort_2.c
+**	sort_2.c	static 1	/ full
 */
 void			sort_sub_5(t_deque **a, t_deque **b, int len);
 void			fdeque_pivot(t_deque **a,int *pivot, int len);
-void			sort_rec(t_deque **a, t_deque **b, int len);
-void			sort_rec_2(t_deque **a, t_deque **b, int len);
+void			set_zero(int *cnt);
 void			sort_rec_sub(t_deque **a, t_deque **b, int len);
 
 /*
-**	sort_2.c				/2
+**	sort_3.c				/2
 */
+void			rewind(t_deque **a, char c, int len);
+void			sort_rec_2(t_deque **a, t_deque **b, int len);
+void			sort_rec(t_deque **a, t_deque **b, int len);
 
 
 #endif

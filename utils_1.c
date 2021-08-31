@@ -18,25 +18,6 @@ void	f_exit(int i)
 	exit(i);
 }
 
-void	init(t_deque **a, t_deque **b, int *tmp, int len)
-{
-	int	i;
-
-	i = 0;
-	while (i < len - 2)
-	{
-		if (!(tmp[i] < tmp[i + 1]))
-			break ;
-		i++;
-	}
-	if (i == len - 2 || len == 1 || len == 2)
-		exit(0);
-	*a = NULL;
-	*b = NULL;
-	while (1 < len--)
-		fdeque_append(a, tmp[len - 1]);
-}
-
 void	checkvaild(int *tmp, int argc, char **argv)
 {
 	int	i;
@@ -60,6 +41,25 @@ void	checkvaild(int *tmp, int argc, char **argv)
 		}
 		i++;
 	}
+}
+
+void	init(t_deque **a, t_deque **b, int *tmp, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i < len - 2)
+	{
+		if (!(tmp[i] < tmp[i + 1]))
+			break ;
+		i++;
+	}
+	if (i == len - 2 || len == 1 || len == 2)
+		exit(0);
+	*a = NULL;
+	*b = NULL;
+	while (1 < len--)
+		fdeque_append(a, tmp[len - 1]);
 }
 
 void	end(t_deque **a, t_deque **b)

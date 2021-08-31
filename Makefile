@@ -6,18 +6,18 @@
 #    By: yusong <42.4.yusong@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/19 22:24:22 by yusong            #+#    #+#              #
-#    Updated: 2021/08/13 19:15:19 by yusong           ###   ########.fr        #
+#    Updated: 2021/08/31 23:25:22 by yusong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = gcc
-CFLAGS = -g # -Werror -Wextra -Wall
+CFLAGS = -Werror -Wextra -Wall
 
 SRCS =	main.c \
-			utils_1.c utils_2.c utils_3.c utils_4.c utils_5.c \
-			sort_1.c sort_2.c sort_3.c
+		utils_1.c utils_2.c utils_3.c utils_4.c utils_5.c \
+		sort_1.c sort_2.c sort_3.c
 OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)

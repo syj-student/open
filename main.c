@@ -6,7 +6,7 @@
 /*   By: yusong <42.4.yusong@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 22:14:12 by yusong            #+#    #+#             */
-/*   Updated: 2021/08/31 22:50:45 by yusong           ###   ########.fr       */
+/*   Updated: 2021/08/31 23:25:15 by yusong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,29 +38,34 @@ void	merge_sort(int *lst, int start, int end)
 	}
 }
 
+static void merge_sort_sub_sub(int *lst, int *new_lst, int *i)
+{
+	while (i[0] <= i[3] && i[1] <= i[4])
+	{
+		if (lst[i[0]] <= lst[i[1]])
+			new_lst[i[2]++] = lst[i[0]++];
+		else
+			new_lst[i[2]++] = lst[i[1]++];
+	}
+	while (i[0] <= i[3])
+		new_lst[i[2]++] = lst[i[0]++];
+	while (i[1] <= i[4])
+		new_lst[i[2]++] = lst[i[1]++];
+}
+
 void	merge_sort_sub(int *lst, int start, int mid , int end)
 {
-	int	i;
-	int	j;
-	int	k;
+	int	i[5];
 	int	tmp;
 	int	*new_lst;
 
 	new_lst = int_malloc(end + 1);
-	i = start;
-	j = mid + 1;
-	k = start;
-	while (i <= mid && j <= end)
-	{
-		if (lst[i] <= lst[j])
-			new_lst[k++] = lst[i++];
-		else
-			new_lst[k++] = lst[j++];
-	}
-	while (i <= mid)
-		new_lst[k++] = lst[i++];
-	while (j <= end)
-		new_lst[k++] = lst[j++];
+	i[0] = start;
+	i[1] = mid + 1;
+	i[2] = start;
+	i[3] = mid;
+	i[4] = end;
+	merge_sort_sub_sub(lst, new_lst, i);
 	tmp = start;
 	while (tmp <= end)
 	{
@@ -76,6 +81,6 @@ int		*int_malloc(int cnt)
 
 	ret = (int *)malloc(sizeof(int) * cnt);
 	if (!ret)
-		exit(0);
+		exit(1);
 	return ret;
 }
