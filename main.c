@@ -6,7 +6,7 @@
 /*   By: yusong <42.4.yusong@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 22:14:12 by yusong            #+#    #+#             */
-/*   Updated: 2021/08/31 22:36:31 by yusong           ###   ########.fr       */
+/*   Updated: 2021/08/31 22:50:45 by yusong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,9 @@ void	merge_sort_sub(int *lst, int start, int mid , int end)
 	int	j;
 	int	k;
 	int	tmp;
-	int	new_lst[500];
+	int	*new_lst;
 
+	new_lst = int_malloc(end + 1);
 	i = start;
 	j = mid + 1;
 	k = start;
@@ -66,4 +67,15 @@ void	merge_sort_sub(int *lst, int start, int mid , int end)
 		lst[tmp] = new_lst[tmp];
 		tmp++;
 	}
+	free(new_lst);
+}
+
+int		*int_malloc(int cnt)
+{
+	int	*ret;
+
+	ret = (int *)malloc(sizeof(int) * cnt);
+	if (!ret)
+		exit(0);
+	return ret;
 }

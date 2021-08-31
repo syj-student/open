@@ -27,8 +27,9 @@ typedef struct s_deque
 /*
 **	main.c 					/ 2
 */
-void	merge_sort(int *lst, int start, int end);
-void	merge_sort_sub(int *lst, int start, int mid , int end);
+void			merge_sort(int *lst, int start, int end);
+void			merge_sort_sub(int *lst, int start, int mid , int end);
+int				*int_malloc(int cnt);
 
 /*
 **	utils_1.c 				/ full

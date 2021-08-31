@@ -39,10 +39,11 @@ void	sort_sub_5(t_deque **a, t_deque **b, int len)
 void		fdeque_pivot(t_deque **a, int *pivot, int len)
 {
 	int		i;
-	int		tmp_lst[500];
+	int		*tmp_lst;
 	t_deque	*tmp_a;
 
 	tmp_a = (*a)->prev;
+	tmp_lst = int_malloc(len);
 	i = -1;
 	while (i++ < len - 1)
 	{
@@ -54,6 +55,7 @@ void		fdeque_pivot(t_deque **a, int *pivot, int len)
 	pivot[0] = tmp_lst[i];
 	i = len * 0.34 * 2;
 	pivot[1] = tmp_lst[i];
+	free(tmp_lst);
 }
 
 void	sort_rec_sub(t_deque **a, t_deque **b, int len)
@@ -196,7 +198,7 @@ void	sort_rec(t_deque **a, t_deque **b, int len)
 		}
 		sort_rec(a, b, cnt[0]);
 		sort_rec_sub(a, b, cnt[1]);
-		tmp = fdeque_len(b);
+		tmp = fdeque_len(*b);
 		if (tmp != len)
 		{
 			tmp = cnt[2];
