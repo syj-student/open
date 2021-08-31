@@ -6,7 +6,7 @@
 /*   By: yusong <42.4.yusong@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 22:14:12 by yusong            #+#    #+#             */
-/*   Updated: 2021/08/31 23:25:15 by yusong           ###   ########.fr       */
+/*   Updated: 2021/09/01 01:53:32 by yusong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ int	main(int argc, char **argv)
 {
 	t_deque		*a;
 	t_deque		*b;
-	int			tmp[argc - 1];
-	
+	int			*tmp;
+
+	tmp = (int *)int_malloc(argc - 1);
 	checkvaild(tmp, argc, argv);
 	init(&a, &b, tmp, argc);
+	free(tmp);
 	sort(&a, &b, argc - 1);
 	end(&a, &b);
 	return (0);
@@ -53,7 +55,7 @@ static void merge_sort_sub_sub(int *lst, int *new_lst, int *i)
 		new_lst[i[2]++] = lst[i[1]++];
 }
 
-void	merge_sort_sub(int *lst, int start, int mid , int end)
+void	merge_sort_sub(int *lst, int start, int mid, int end)
 {
 	int	i[5];
 	int	tmp;
@@ -82,5 +84,5 @@ int		*int_malloc(int cnt)
 	ret = (int *)malloc(sizeof(int) * cnt);
 	if (!ret)
 		exit(1);
-	return ret;
+	return (ret);
 }

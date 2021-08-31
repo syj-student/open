@@ -114,5 +114,3 @@ void	sort_rec_sub(t_deque **a, t_deque **b, int len)
 		sort_rec_sub(a, b, cnt[2]);
 	}
 }
-
-
