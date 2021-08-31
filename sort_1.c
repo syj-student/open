@@ -36,26 +36,21 @@ void	sort_sub_2(t_deque **a)
 static void	sort_sub_3_sub(int *val, int max, t_deque **a)
 {
 	if (max == val[0])
-		sasb(a, 'a');
+	{
+		if (val[1] < val[2])
+			sasb(a, 'a');
+	}
 	else if (max == val[1])
 	{
+		rrarrb(a, 'a');
 		if (val[0] > val[2])
-		{
 			sasb(a, 'a');
-			rarb(a, 'a');
-		}
-		else
-			rrarrb(a, 'a');
 	}
 	else
 	{
-		if (val[0] > val[1])
-			rarb(a, 'a');
-		else
-		{
-			rarb(a, 'a');
+		rarb(a, 'a');
+		if (val[0] < val[1])
 			sasb(a, 'a');
-		}
 	}
 }
 
@@ -75,15 +70,16 @@ void	sort_sub_4(t_deque **a, t_deque **b)
 {
 	int		min;
 	t_deque	*tmp_a;
-	int		i;
 
 	tmp_a = (*a)->prev;
 	min = fdeque_min(a);
-	i = 4;
-	while (i--)
+	while (1)
 	{
 		if (tmp_a->val == min)
+		{
 			pb(a, b);
+			break ;
+		}
 		else
 			rarb(a, 'a');
 		tmp_a = (*a)->prev;
