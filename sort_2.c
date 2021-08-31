@@ -196,9 +196,13 @@ void	sort_rec(t_deque **a, t_deque **b, int len)
 		}
 		sort_rec(a, b, cnt[0]);
 		sort_rec_sub(a, b, cnt[1]);
-		tmp = cnt[2];
-		while (0 <tmp--)
-			rrarrb(b, 'b');
+		tmp = fdeque_len(b);
+		if (tmp != len)
+		{
+			tmp = cnt[2];
+			while (0 <tmp--)
+				rrarrb(b, 'b');
+		}
 		sort_rec_sub(a, b, cnt[2]);
 	}
 

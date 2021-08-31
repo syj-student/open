@@ -24,13 +24,11 @@ typedef struct s_deque
 	struct s_deque	*next;
 }					t_deque;
 
-// test
-# include <stdio.h>
-void	test(t_deque *a, t_deque *b);
+/*
+**	main.c 					/ 2
+*/
 void	merge_sort(int *lst, int start, int end);
 void	merge_sort_sub(int *lst, int start, int mid , int end);
-
-
 
 /*
 **	utils_1.c 				/ full
@@ -87,7 +85,7 @@ void			sort_sub_5(t_deque **a, t_deque **b, int len);
 void			fdeque_pivot(t_deque **a,int *pivot, int len);
 void			sort_rec(t_deque **a, t_deque **b, int len);
 void			sort_rec_2(t_deque **a, t_deque **b, int len);
-
+void			sort_rec_sub(t_deque **a, t_deque **b, int len);
 
 /*
 **	sort_2.c				/2

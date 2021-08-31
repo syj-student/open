@@ -6,43 +6,23 @@
 /*   By: yusong <42.4.yusong@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 22:14:12 by yusong            #+#    #+#             */
-/*   Updated: 2021/08/31 22:24:05 by yusong           ###   ########.fr       */
+/*   Updated: 2021/08/31 22:36:31 by yusong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	test(t_deque *a, t_deque *b)
+int	main(int argc, char **argv)
 {
-	printf("=====a=====\n");
-	if (!a)
-	{
-		printf("NULL\n");
-	}
-	else
-	{
-		while (!(a->end))
-		{
-			printf("%d\n", a->val);
-			a = a->next;
-		}
-		printf("%d\n", a->val);
-	}
-	printf("=====b=====\n");
-	if (!b)
-	{
-		printf("NULL\n");
-	}
-	else
-	{
-		while (!(b->end))
-		{
-			printf("%d\n", b->val);
-			b = b->next;
-		}
-		printf("%d\n", b->val);
-	}
-	printf("===========\n\n");
+	t_deque		*a;
+	t_deque		*b;
+	int			tmp[argc - 1];
+	
+	checkvaild(tmp, argc, argv);
+	init(&a, &b, tmp, argc);
+	sort(&a, &b, argc - 1);
+	end(&a, &b);
+	return (0);
 }
 
 void	merge_sort(int *lst, int start, int end)
@@ -86,17 +66,4 @@ void	merge_sort_sub(int *lst, int start, int mid , int end)
 		lst[tmp] = new_lst[tmp];
 		tmp++;
 	}
-}
-
-int	main(int argc, char **argv)
-{
-	t_deque		*a;
-	t_deque		*b;
-	int			tmp[argc - 1];
-	
-	checkvaild(tmp, argc, argv);
-	init(&a, &b, tmp, argc);
-	sort(&a, &b, argc - 1);
-	end(&a, &b);
-	return (0);
 }
